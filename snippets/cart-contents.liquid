@@ -28,7 +28,9 @@
             <td>
               {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
               {{ item.line_price | money }}
-              {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+              {% for discount in item.discounts -%}
+                {{- discount.title -}}
+              {%- endfor %}
             </td>
           </tr>
         {% endfor %}
