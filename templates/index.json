@@ -1,0 +1,9 @@
+{
+    "name": "index",
+    "sections": {
+        "template": {
+            "type": "index-section"
+        }
+    },
+    "order": ["template"]
+}

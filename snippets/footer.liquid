@@ -1,9 +1,16 @@
 <footer class="footer-global">
   {%- comment -%} TOP FOOTER  {%- endcomment -%}
   <div class="footer-top">
+    {%- comment -%} product list {%- endcomment -%}
     <ul class="products-list">
       {{ 'footer.list.products' | t }}
+      {%- for product in collections.frontpage.products limit: 4 -%}
+        <li>
+          <a href="{{ product.url }}">{{ product.title }}</a>
+        </li>
+      {%- endfor -%}
     </ul>
+    {%- comment -%} conditions list {%- endcomment -%}
     <ul class="contact-list">
       {{ linklists.footer.title }}
       {% for link in linklists.footer.links %}
@@ -22,6 +29,7 @@
         </li>
       {% endfor %}
     </ul>
+    {%- comment -%} about description {%- endcomment -%}
     <div class="about-us">
       {{ 'general.about.title' | t }}
       <p>{{ 'general.about.description' | t }}</p>
