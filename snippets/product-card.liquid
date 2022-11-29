@@ -10,7 +10,9 @@
       </a>
 
       <div class="below-title">
-        <p class="color-accent ta-center">{{ product.description | strip_html | split: '.' | first | append: '.' }}</p>
+        <p class="color-accent ta-center product-description">
+          {{ product.description | strip_html | split: '.' | first | append: '.' }}
+        </p>
 
         {%- if product.variants.size > 1 -%}
           <span class="color-accent ta-center product-options">
