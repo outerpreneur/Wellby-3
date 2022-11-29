@@ -1,30 +1,38 @@
 <div class="product-card">
-  {%- comment -%} CARD INFO {%- endcomment -%}
-  <div class="card-info">
-    <a href="{{ product.url }}">
-      {{- product.title }}
-      <span class="price">{{ product.price | money_without_trailing_zeros }}</span>
-    </a>
+  <div class="card-inner grid collapse two-columns">
+    {%- comment -%} CARD INFO {%- endcomment -%}
+    <div class="card-info product-info-section text-white">
+      <a class="product-title text-white" href="{{ product.url }}">
+        <h2 class="text-white ta-center">
+          {{- product.title }}
+          <span class="price accent-color">{{ product.price | money_without_trailing_zeros }}</span>
+        </h2>
+      </a>
 
-    <p>{{ product.description | strip_html | split: '.' | first | append: '.' }}</p>
+      <div class="below-title">
+        <p class="color-accent ta-center">{{ product.description | strip_html | split: '.' | first | append: '.' }}</p>
 
-    {%- if product.variant.size > 1 -%}
-      {{ 'product.card.options' | t: optionCount: product.variants.size }} &ndash;
-    {%- endif -%}
+        {%- if product.variants.size > 1 -%}
+          <span class="color-accent ta-center product-options">
+            {{ 'product.card.options' | t: optionCount: product.variants.size }} &ndash;
+          </span>
+        {%- endif -%}
+      </div>
 
-    {% if product.available -%}
-      <a href="{{ product.url }}">{{ 'product.card.more_info' | t }}</a>
-    {%- else -%}
-      {{ 'product.form.sold_out' | t }}
-    {%- endif %}
-  </div>
-  {%- comment -%} CARD PICTURE {%- endcomment -%}
-  <div class="card-image">
-    <a href="{{ product.url }}">
-      <img
-        src="{{ product.featured_image.src | img_url: '1200x900', crop: 'center' }}"
-        alt="{{ product.featured_image.alt | escape }}"
-      >
-    </a>
+      {% if product.available -%}
+        <a class="ta-center text-white" href="{{ product.url }}">{{ 'product.card.more_info' | t }}</a>
+      {%- else -%}
+        {{ 'product.form.sold_out' | t }}
+      {%- endif %}
+    </div>
+    {%- comment -%} CARD PICTURE {%- endcomment -%}
+    <div class="card-image">
+      <a href="{{ product.url }}">
+        <img
+          src="{{ product.featured_image.src | img_url: '800x800', crop: 'center' }}"
+          alt="{{ product.featured_image.alt | escape }}"
+        >
+      </a>
+    </div>
   </div>
 </div>
