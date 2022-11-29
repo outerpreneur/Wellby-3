@@ -168,7 +168,51 @@ p {
   color: var(--black)
 }
 
+button[type=submit], .button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  width: 100%;
+  padding: var(--line-global);
+  text-align: center;
+  font-size: var(--type-body-med);
+  line-height: var(--line-global);
+  background: var(--gold);
+  color: var(--white)
+}
+
+button[type=submit]:disabled, .button:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+button[type=submit]:not(:disabled):hover, .button:not(:disabled):hover {
+  opacity: 0.75;
+  background-color: var(--gold)
+}
+
+
 /* utility clases */
+
+.visually-hidden {
+  position: absolute !important;
+  height:1px;
+  width:1px;
+  overflow: hidden;
+  display: hidden;
+}
 
 .wrapper {
   padding-left: var(--offset-global);
@@ -340,4 +384,57 @@ h4 {
 
 .product-image {
   width: 100%;
+}
+
+.product-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* add to cart form */
+
+#add-to-cart-form {
+
+}
+
+.option-row {
+  text-align: left;
+  padding: var(--line-global) 0;
+  border-top: var(--standard-border-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.option-row:last-of-type {
+  border-bottom: var(--standard-border-white);
+}
+
+.option-title {
+  color: var(--text-color-white)
+}
+
+.option-fieldset label {
+  font-size: var(--type-body-sm);
+  font-weight: var(--type-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  cursor: pointer;
+  padding: calc(var(--line-global)/5);
+  border: 1px solid transparent;
+  color: var(--text-color-light-white);
+}
+
+.variant-radio:checked + label {
+  color: var(--white);
+  border: 1px solid var(--white)
+}
+
+
+.variant-radio:disabled + label {
+  cursor: not-allowed;
+  text-decoration: line-through;
+  color: var(--text-color)
 }
