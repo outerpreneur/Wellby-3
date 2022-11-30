@@ -22,7 +22,7 @@
       </div>
 
       {% if product.available -%}
-        <a class="ta-center text-white" href="{{ product.url }}">{{ 'product.card.more_info' | t }}</a>
+        <a class="ta-center text-link text-white" href="{{ product.url }}">{{ 'product.card.more_info' | t }}</a>
       {%- else -%}
         {{ 'product.form.sold_out' | t }}
       {%- endif %}
