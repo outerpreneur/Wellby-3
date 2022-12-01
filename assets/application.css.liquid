@@ -568,7 +568,8 @@ h4 {
   right: 0;
   width: 100%;
   max-width: 380px;
-  background: var(--light-black)
+  background: var(--light-black);
+  display: none;
 }
 
 .mini-cart-contents {
@@ -580,6 +581,7 @@ h4 {
 .mini-cart-contents {
   display:flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .mini-cart-contents:first-child {
@@ -590,3 +592,7 @@ h4 {
   margin-bottom: auto
 }
 
+/* cart toggle styles */
+html.mini-cart-open #mini-cart {
+  display: block;
+}

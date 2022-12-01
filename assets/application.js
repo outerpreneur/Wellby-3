@@ -73,7 +73,7 @@ $(document).ready(function() {
           data: $(this).serialize(),
           dataType: 'json',
           success: onCartUpdated,
-          error: OnError
+          error: onError
         });
       },
       onLineRemoved = function(event) {
@@ -102,11 +102,28 @@ $(document).ready(function() {
           }
         })
       },
-      OnError = function(XMLHttprequest, textStatus ) {
+      onError = function(XMLHttprequest, textStatus ) {
         let data = XMLHttprequest, responseJSON;
         alert(data.status + ' - ' + data.message + '; ' + data.description);
+      },
+      openCart = function() {
+        $('html').addClass('mini-class-open');
       }
+      closeCart = function() {
+        $('html').removeClass('mini-class-open');
+      },
+      onCartButtonClick = function(event) {
+        event.preventDefault();
 
+        let isCartOpen = $('html').hasClass('mini-cart-open');
+        if(!isCartOpen) {
+          openCart();
+        } else {
+          closeCart();
+        }
+      };
+
+// EVENT LISTENERS
 
   $(document).on('click', '.js-quantity-button', onQuantityButtonClick);
 
@@ -114,8 +131,10 @@ $(document).ready(function() {
 
   $(document).on('change', '.js-variant-radio', onVariantRadioChange);
 
-  $(document).on('submit', '#add-to-cart-form', onAddToCart)
+  $(document).on('submit', '#add-to-cart-form', onAddToCart);
 
-  $(document).on('click', '#mini-cart js-remove-line', onLineRemoved)
+  $(document).on('click', '#mini-cart js-remove-line', onLineRemoved);
+
+  $(document).on('click', '.js-cart-link', onCartButtonClick);
 
 });
