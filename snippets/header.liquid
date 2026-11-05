@@ -4,7 +4,7 @@
 
   {%- comment -%} LOGO {%- endcomment -%}
   <a href="/" class="logo">
-    <img src="{{ 'logo.svg' | asset_url }}" alt="{{v'general.shop.title' | t }}">
+    <img src="{{ 'logo.svg' | asset_url }}" alt="{{ v.general.shop.title | t }}">
   </a>
 
   {%- comment -%} CART COUNT {%- endcomment -%}
@@ -19,3 +19,13 @@
     <span class="cart-close-text">{{ cart_close_text }}</span>
   </a>
 </header>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{v'general.shop.title' | t }}"
+  to: "{{ v.general.shop.title | t }}"
+  position: 200..230
+{% endcomment %}
